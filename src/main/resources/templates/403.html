@@ -1,0 +1,182 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>Admiria - Responsive Flat Admin Dashboard</title>
+    <meta content="Admin Dashboard" name="description" />
+    <meta content="Themesbrand" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- App Icons -->
+    <link rel="shortcut icon" th:href="@{/images/favicon.ico}">
+
+    <!-- Basic Css files -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"  type="text/css">
+    <link th:href="@{/css/icons.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<div id="wrapper">
+
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="left side-menu">
+
+        <!-- LOGO -->
+        <div class="topbar-left">
+            <div class="">
+                <!--<a href="index.html" class="logo text-center">Admiria</a>-->
+                <a href="index.html" class="logo"><img th:src="@{/images/logo-sm.png}" height="36" alt="logo"></a>
+            </div>
+        </div>
+
+        <div class="sidebar-inner slimscrollleft">
+            <div id="sidebar-menu">
+                <ul>
+
+                    <li class="menu-title">Main</li>
+
+                    <li class="has_sub">
+                        <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Dashboard <span class="badge badge-pill badge-primary pull-right">20+</span></span> </a>
+                        <ul class="list-unstyled">
+                            <li><a href="index.html">Dashboard One</a></li>
+                            <li><a href="dashboard-2.html">Dashboard Two</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="widgets.html" class="waves-effect"><i class="mdi mdi-cube-outline"></i><span> Widgets </span></a>
+                    </li>
+
+                    <li class="has_sub">
+                        <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-email-outline"></i><span> Email <span class="pull-right"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                        <ul class="list-unstyled">
+                            <li><a href="email-inbox.html">Inbox</a></li>
+                            <li><a href="email-read.html">Email Read</a></li>
+                            <li><a href="email-compose.html">Email Compose</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="calendar.html" class="waves-effect"><i class="mdi mdi-calendar-check"></i><span> Calendar </span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div> <!-- end sidebarinner -->
+    </div>
+    <!-- Left Sidebar End -->
+
+
+    <!-- Start right Content here -->
+    <div class="content-page">
+        <!-- Start content -->
+        <div class="content">
+
+            <!-- Top Bar Start -->
+            <div class="topbar">
+
+                <nav class="navbar-custom">
+                    <!-- Search input -->
+                    <div class="search-wrap" id="search-wrap">
+                        <div class="search-bar">
+                            <input class="search-input" type="search" placeholder="Search" />
+                            <a href="#" class="close-search toggle-search" data-target="#search-wrap">
+                                <i class="mdi mdi-close-circle"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <ul class="list-inline float-right mb-0">
+                        <!-- User-->
+                        <li class="list-inline-item dropdown notification-list">
+                            <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button"
+                               aria-haspopup="false" aria-expanded="false">
+                                <span name='123'>Thông tin</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                                <a class="dropdown-item" href="#"><i class="dripicons-user text-muted"></i> Profile</a>
+                                <a class="dropdown-item" href="#"><i class="dripicons-lock text-muted"></i> Lock screen</a>
+                                <div class="dropdown-divider"></div>
+                                <form action="#" th:action="@{/logout}" method="POST" class="dropdown-item">
+                                    <button type="submit" stype="boder: 0px solid #008CBA" style ="background-color: white" >Logout2</button>
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <!-- Page title -->
+                    <ul class="list-inline menu-left mb-0">
+                        <li class="list-inline-item">
+                            <button type="button" class="button-menu-mobile open-left waves-effect">
+                                <i class="ion-navicon"></i>
+                            </button>
+                        </li>
+                        <li class="hide-phone list-inline-item app-search">
+                            <h3 class="page-title">Table Editable</h3>
+                        </li>
+                    </ul>
+
+                    <div class="clearfix"></div>
+                </nav>
+
+            </div>
+            <!-- Top Bar End -->
+
+            <!-- ==================
+                 PAGE CONTENT START
+                 ================== -->
+
+            <div class="page-content-wrapper">
+
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card m-b-20">
+                                <div class="card-body">
+
+                                </div>
+                            </div>
+                        </div> <!-- end col -->
+                    </div> <!-- end row -->
+
+                </div><!-- container -->
+
+            </div> <!-- Page content Wrapper -->
+
+        </div> <!-- content -->
+
+        <footer class="footer">
+            © 2017 - 2021 NEU <span class="text-muted d-none d-sm-inline-block float-right">Created by <i class="mdi mdi-heart text-danger"></i> LÊ XUÂN TÙNG - 11175146</span>
+        </footer>
+
+    </div>
+    <!-- End Right content here -->
+
+</div>
+<!-- END wrapper -->
+<!-- jQuery  -->
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/modernizr.min.js}"></script>
+<script th:src="@{/js/jquery.slimscroll.js}"></script>
+<script th:src="@{/js/waves.js}"></script>
+<script th:src="@{/js/jquery.nicescroll.js}"></script>
+<script th:src="@{/js/jquery.scrollTo.min.js}"></script>
+
+<!-- Table editable -->
+<script src="../plugins/tiny-editable/mindmup-editabletable.js"></script>
+<script src="../plugins/tiny-editable/numeric-input-example.js"></script>
+
+<!-- App js -->
+<script th:src="@{/js/app.js}"></script>
+
+</body>
+</html>

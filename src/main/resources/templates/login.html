@@ -1,0 +1,103 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>Admiria - Responsive Flat Admin Dashboard</title>
+    <meta content="Admin Dashboard" name="description" />
+    <meta content="Themesbrand" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- App Icons -->
+    <link rel="shortcut icon" th:href="@{/images/favicon.ico}">
+
+    <!-- Basic Css files -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"  type="text/css">
+    <link th:href="@{/css/icons.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+
+</head>
+
+
+<body class="fixed-left">
+
+<!-- Loader -->
+<div id="preloader"><div id="status"><div class="spinner"></div></div></div>
+
+
+<!-- Begin page -->
+<div class="accountbg"></div>
+<div class="wrapper-page">
+
+    <div class="card">
+        <div class="card-body">
+
+            <h3 class="text-center m-0">
+                <a th:href="@{/templates/index.html}" class="logo logo-admin"><img th:src="@{/images/logo.png}" height="30" alt="logo"></a>
+            </h3>
+
+            <div class="p-3">
+                <h4 class="font-18 m-b-5 text-center">Welcome Back !</h4>
+                <p class="text-muted text-center">Sign in to continue.</p>
+
+                <form class="form-horizontal m-t-30" th:action="@{/login}" method="post">
+                    <div th:if="${param.error}">
+                        <div class="alert alert-danger">Invalid phone or password.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Số điện thoại</label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter phone number" name="username">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+                    </div>
+
+
+                    <div class="form-group row m-t-20">
+                        <div class="col-sm-6">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customControlInline">
+                                <label class="custom-control-label" for="customControlInline">Remember me</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <input class="btn btn-primary w-md waves-effect waves-light" type="submit" name="submit" value="Đăng nhập">
+                        </div>
+                    </div>
+
+                    <div class="form-group m-t-10 mb-0 row">
+                        <div class="col-12 m-t-20">
+                            <a th:href="@{/pages-recoverpw.html}" class="text-muted"><i class="mdi mdi-lock    "></i> Forgot your password?</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <footer class="footer">
+        © 2017 - 2021 NEU <span class="text-muted d-none d-sm-inline-block float-right">Created by <i class="mdi mdi-heart text-danger"></i> LÊ XUÂN TÙNG - 11175146</span>
+    </footer>
+</div>
+
+
+<!-- jQuery  -->
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/modernizr.min.js}"></script>
+<script th:src="@{/js/jquery.slimscroll.js}"></script>
+<script th:src="@{/js/waves.js}"></script>
+<script th:src="@{/js/jquery.nicescroll.js}"></script>
+<script th:src="@{/js/jquery.scrollTo.min.js}"></script>
+
+<!-- App js -->
+<script th:src="@{/js/app.js}"></script>
+
+</body>
+</html>
