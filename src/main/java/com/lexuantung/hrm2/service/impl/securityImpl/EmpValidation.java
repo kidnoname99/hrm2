@@ -1,4 +1,4 @@
-package com.lexuantung.hrm2.service.impl;
+package com.lexuantung.hrm2.service.impl.securityImpl;
 
 import com.lexuantung.hrm2.entity.Employee;
 import com.lexuantung.hrm2.service.EmpService;

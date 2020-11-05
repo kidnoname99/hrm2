@@ -10,9 +10,9 @@ public class CongNhat {
     @Id
     @Column(name = "id")
     private Long id;
-    @Column
+    @Column(name = "name")
     private String name;
-    @Column
+    @Column(name = "salary")
     private float salary;
 
     @OneToMany(targetEntity = Detail.class, mappedBy = "congNhat")

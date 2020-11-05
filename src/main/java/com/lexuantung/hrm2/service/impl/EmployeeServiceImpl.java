@@ -31,6 +31,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -45,6 +47,8 @@ public class EmployeeServiceImpl implements EmpService {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
     @Autowired
     private RoleService roleService;
+    @PersistenceContext
+    private EntityManager entityManager;
 
 
 
@@ -54,12 +58,8 @@ public class EmployeeServiceImpl implements EmpService {
         empRequest.setPassword(bCryptPasswordEncoder.encode(empRequest.getPassword()));
 
         BeanUtils.copyProperties(empRequest,employee);
-        Set<Role> roles = new HashSet<>();
-        for (Long id: empRequest.getIds()){
-            Role role = roleRepository.getOne(id);
-            roles.add(role);
-        }
-        employee.setRoles(roles);
+//        insertPermission(empRequest.getRoleID(), empRequest.getId());
+
         employeeRepository.save(employee);
     }
 
@@ -68,19 +68,20 @@ public class EmployeeServiceImpl implements EmpService {
         empRequest.setPassword(bCryptPasswordEncoder.encode(empRequest.getPassword()));
         Employee employee = new Employee();
         BeanUtils.copyProperties(empRequest,employee);
-        Set<Role> roles = new HashSet<>();
-        for (Long id: empRequest.getIds()){
-            Role role = roleRepository.getOne(id);
-            roles.add(role);
-        }
-        employee.setRoles(roles);
+//
+//        Set<Role> roles = new HashSet<>();
+////        for (Long id: empRequest.getIds()){
+////            Role role = roleRepository.getOne(id);
+////            roles.add(role);
+////        }
+//        employee.setRoles(roles);
         employeeRepository.save(employee);
     }
 
     @Override
     public void delete(Long id) {
 
-        Employee employee = employeeRepository.getOne(id);
+        Employee employee = employeeRepository.findEmployeeById(id);
         for (Role role: employee.getRoles()){
             role.getEmps().remove(employee);
         }
@@ -115,6 +116,14 @@ public class EmployeeServiceImpl implements EmpService {
 
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize, sort);
         return this.employeeRepository.findAll(pageable);
+    }
+
+    public void insertPermission(long empId, long roleId){
+
+        entityManager.createNativeQuery("insert into permission(role_id,employee_id) value (?,?);")
+                .setParameter(1, roleId)
+                .setParameter(2, empId)
+                .executeUpdate();
     }
 
 //

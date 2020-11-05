@@ -1,30 +1,12 @@
 package com.lexuantung.hrm2.controller;
 
-import com.lexuantung.hrm2.entity.Employee;
-import com.lexuantung.hrm2.model.request.user.LoginRequest;
-
 import com.lexuantung.hrm2.service.EmpService;
 import com.lexuantung.hrm2.service.SecurityService;
-import com.lexuantung.hrm2.service.impl.EmpValidation;
+import com.lexuantung.hrm2.service.impl.securityImpl.EmpValidation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import java.io.IOException;
-import java.security.Principal;
 
 
 @Controller
@@ -54,8 +36,9 @@ public class LoginController  {
         return "403";
     }
 
-    @GetMapping("/admin")
-    public String adminPage(){
-        return "admin";
-    }
+//    @GetMapping("/")
+//    public String userInfor(Model model, Principal principal){
+//        String phoneNum = principal.getName();
+//        return "index.html";
+//    }
 }

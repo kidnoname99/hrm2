@@ -8,4 +8,5 @@ import java.util.List;
 public interface RoleService {
     RoleResponse findOne(Long id);
     List<Role> findAll();
+
 }

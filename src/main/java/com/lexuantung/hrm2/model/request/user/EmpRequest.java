@@ -20,7 +20,7 @@ public class EmpRequest {
     @NotEmpty
     private String confirmPassword;
 
-    private Set<Long> ids = new HashSet<Long>();
+    private Long roleID;
 
     public Long getId() {
         return id;
@@ -30,12 +30,12 @@ public class EmpRequest {
         this.id = id;
     }
 
-    public Set<Long> getIds() {
-        return ids;
+    public Long getRoleID() {
+        return roleID;
     }
 
-    public void setIds(Set<Long> ids) {
-        this.ids = ids;
+    public void setRoleID(Long roleID) {
+        this.roleID = roleID;
     }
 
     public String getConfirmPassword() {

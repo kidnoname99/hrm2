@@ -143,63 +143,51 @@
                                 <div class="card-body">
 
                                     <h4 class="mt-0 header-title">Employees List</h4>
-                                    <a th:href="@{/registration}" class="btn btn-primary btn-sm mb-3"> Add Employee </a>
+                                    <a th:href="@{/insertDetail}" class="btn btn-primary btn-sm mb-3"> Add  </a>
                                     <table id="mainTable" class="table table-striped m-b-0">
                                         <thead>
                                         <tr>
                                             <th>
-                                                <a th:href="@{'/admin/page/' + ${currentPage} + '?sortField=name&sortDir=' + ${reverseSortDir}}">
-                                                    Employee Name</a>
+                                             1
                                             </th>
                                             <th>
-                                                <a th:href="@{'/admin/page/' + ${currentPage} + '?sortField=address&sortDir=' + ${reverseSortDir}}">
-                                                    Employee Address </a>
+                                               2
                                             </th>
                                             <th>
-                                                <a th:href="@{'/admin/page/' + ${currentPage} + '?sortField=phone&sortDir=' + ${reverseSortDir}}">
-                                                    Employee phone</a>
+                                                3
                                             </th>
                                             <th>
-                                                <a th:href="@{'/admin/page/' + ${currentPage} + '?sortField=cmnd&sortDir=' + ${reverseSortDir}}">
-                                                    Employee cmnd</a>
+                                                4
                                             </th>
+                                            <th>
+                                              5
+                                            </th>
+                                            <th>
+                                               6
+                                            </th>
+                                            <th>
+                                                7
+                                            </th>
+
                                             <th> Actions </th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr th:each="employee : ${listEmployees}">
-                                            <td th:text="${employee.name}"></td>
-                                            <td th:text="${employee.address}"></td>
-                                            <td th:text="${employee.phone}"></td>
-                                            <td th:text="${employee.cmnd}"></td>
-                                            <td> <a th:href="@{/admin/edit/{id}(id=${employee.id})}" class="btn btn-primary">Update</a>
-                                                <a th:href="@{/admin/delete/{id}(id=${employee.id})}" class="btn btn-danger">Delete</a>
+                                        <tr th:each="detail : ${details}">
+                                            <td th:text="${detail.name}"></td>
+                                            <td th:text="${detail.job}"></td>
+                                            <td th:text="${detail.project}"></td>
+                                            <td th:text="${detail.cnName}"></td>
+                                            <td th:text="${detail.kiemSat}"></td>
+                                            <td th:text="${detail.startTime}"></td>
+                                            <td th:text="${detail.endTime}"></td>
+                                            <td> <a th:href="@{/checkIn/{id}(id=${detail.id})}" class="btn btn-primary">checkIn</a>
+                                                <a th:href="@{/checkOut/{id}(id=${detail.id})}" class="btn btn-danger">checkOut</a>
                                             </td>
                                         </tr>
                                         </tbody>
                                     </table>
-                                    <div th:if = "${totalPages > 1}">
-                                        <div class = "row col-sm-10">
-                                            <div class = "col-sm-2">
-                                                Total Rows: [[${totalItems}]]
-                                            </div>
-                                            <div class = "col-sm-1">
-                                                            <span th:each="i: ${#numbers.sequence(1, totalPages)}">
-                                                                <a th:if="${currentPage != i}" th:href="@{'/admin/page/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
-                                                                <span th:unless="${currentPage != i}">[[${i}]]</span>  &nbsp; &nbsp;
-                                                            </span>
-                                            </div>
-                                            <div class = "col-sm-1">
-                                                <a th:if="${currentPage < totalPages}" th:href="@{'/admin/page/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
-                                                <span th:unless="${currentPage < totalPages}">Next</span>
-                                            </div>
 
-                                            <div class="col-sm-1">
-                                                <a th:if="${currentPage < totalPages}" th:href="@{'/admin/page/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
-                                                <span th:unless="${currentPage < totalPages}">Last</span>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div> <!-- end col -->

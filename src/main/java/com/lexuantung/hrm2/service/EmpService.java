@@ -24,4 +24,5 @@ public interface EmpService  {
     void save(Employee employee);
     List<Employee> findAll();
     Page<Employee> findAndPaging(int pageNo, int pageSize, String sortField, String sortDirection);
+
 }

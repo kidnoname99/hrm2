@@ -3,6 +3,7 @@ package com.lexuantung.hrm2.entity;
 
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 
@@ -11,12 +12,12 @@ import java.time.LocalTime;
 public class Detail {
     @Id
     @Column(name = "id")
-    private Long id;
-    @Column
-    private LocalTime startTime;
-    @Column
-    private LocalTime endTime;
-    @Column
+    private long id;
+    @Column(name = "startTime")
+    private LocalDateTime startTime;
+    @Column(name = "endTime")
+    private LocalDateTime endTime;
+    @Column(name = "kiemSat")
     private String kiemSat;
 
     @ManyToOne
@@ -35,19 +36,19 @@ public class Detail {
     @JoinColumn(name="empId", referencedColumnName="id")
     private Employee employee;
 
-    public LocalTime getStartTime() {
+    public LocalDateTime getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(LocalTime startTime) {
+    public void setStartTime(LocalDateTime startTime) {
         this.startTime = startTime;
     }
 
-    public LocalTime getEndTime() {
+    public LocalDateTime getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(LocalTime endTime) {
+    public void setEndTime(LocalDateTime endTime) {
         this.endTime = endTime;
     }
 
@@ -91,11 +92,11 @@ public class Detail {
         this.employee = employee;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 }
